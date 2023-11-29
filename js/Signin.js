@@ -31,7 +31,7 @@ $('#Login').submit(function (e) {
 
   firebase
     .auth()
-    .signInWithEmailAndPassword(email, password)
+    .signInWithEmailAndPassword(username, pswrd)
     .then((success) => {
       // Signed in
       // ...
