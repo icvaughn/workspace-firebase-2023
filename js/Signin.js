@@ -73,26 +73,26 @@ $('#Login').submit(function (e) {
 
 // });
 // })
-
-import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-$('#googleLog').click(function(){
-const auth = getAuth();
-signInWithPopup(auth, provider)
-  .then((result) => {
-    // This gives you a Google Access Token. You can use it to access the Google API.
-    const credential = GoogleAuthProvider.credentialFromResult(result);
-    const token = credential.accessToken;
-    const user = result.user;
+// add  a google login choice here 
+$('#google').click(function(){
+  var provider = new firebase.auth.GoogleAuthProvider();
   
+  firebase.auth()
+  .signInWithPopup(provider)
+  .then((result) => {
+    // The signed-in user info.
+    var user = result.user;
+    console.log("sign in through google", user);
+
   }).catch((error) => {
     // Handle Errors here.
-    const errorCode = error.code;
-    const errorMessage = error.message;
+    var errorCode = error.code;
+    var errorMessage = error.message;
     // The email of the user's account used.
-    const email = error.customData.email;
-    // The AuthCredential type that was used.
-    const credential = GoogleAuthProvider.credentialFromError(error);
+    var email = error.email;
+    // The firebase.auth.AuthCredential type that was used.
+    var credential = error.credential;
     // ...
-    console.log(errorCode+", "+errorMessage+", "+email+", "+credential)
   });
-};
+
+});
