@@ -37,9 +37,7 @@ $("#signup-form").submit(function(e) {
       // ...
       let user = result.user;
       user.updateProfile({
-        displayName: username,
-        email: email,
-        password: password
+        displayName: username
       });
 
       console.log(user.displayName," You are signed up");
