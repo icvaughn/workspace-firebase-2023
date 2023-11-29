@@ -26,8 +26,8 @@ $('#Login').submit(function (e) {
   var pswrd = $("#pwd").val();
   // You need to change this.
   console.log(username + " " + pswrd + " LLL");
-  var email = 'manman@gmail.com';
-  var password = 'manmanman';
+  //var email = 'manman@gmail.com';
+  //var password = 'manmanman';
 
   firebase
     .auth()

@@ -38,9 +38,13 @@ $("#signup-form").submit(function(e) {
       let user = result.user;
       user.updateProfile({
         displayName: username
-      });
-
+      }).then(() =>{
       console.log(user.displayName," You are signed up");
+      });
+      //get current date
+      
+
+
       window.location.href = "Login.html";
       
     })
