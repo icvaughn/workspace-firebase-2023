@@ -62,7 +62,7 @@ $("#signup-form").submit(function(e) {
       });
 
 
-      window.location.href = "Login.html";
+      //window.location.href = "Login.html";
       
     })
     .catch(error => {
