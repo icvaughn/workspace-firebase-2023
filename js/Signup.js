@@ -46,8 +46,7 @@ $("#signup-form").submit(function(e) {
         displayName: username
       }).then(() =>{
       console.log(user.displayName," You are signed up");
-      });
-      //get current date
+           //get current date
       var date = "wed, 29 Nov 2023"
       var userinfo = {
         "username": user.displayName,
@@ -63,6 +62,8 @@ $("#signup-form").submit(function(e) {
 
 
       //window.location.href = "Login.html";
+      });
+ 
       
     })
     .catch(error => {
