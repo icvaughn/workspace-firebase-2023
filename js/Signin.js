@@ -54,26 +54,7 @@ $('#Login').submit(function (e) {
     });
 });
 
-// add  a google login choice here 
-// $('#googleLog').click(function(){
-//   var provider = new firebase.auth.GoogleAuthProvider();
 
-//   firebase.auth()
-//   .signInWithPopup(provider)
-//   .then((result) =>{
-//   var user = result.user;
-//   console.log(user)
-
-// }).catch((error){
-//   var errorCode = error.code;
-//   var errorMessage = error.message;
-
-//   var email = error.email;
-//   var credentials = error.credentials;
-
-// });
-// })
-// add  a google login choice here 
 $('#google').click(function(){
   var provider = new firebase.auth.GoogleAuthProvider();
   
