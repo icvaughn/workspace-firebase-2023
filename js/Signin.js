@@ -55,21 +55,44 @@ $('#Login').submit(function (e) {
 });
 
 // add  a google login choice here 
-$('#googleLog').click(function(){
-  var provider = new firebase.auth.GoogleAuthProvider();
+// $('#googleLog').click(function(){
+//   var provider = new firebase.auth.GoogleAuthProvider();
 
-  firebase.auth()
-  .signInWithPopup(provider)
-  .then((result) =>{
-  var user = result.user;
-  console.log(user)
+//   firebase.auth()
+//   .signInWithPopup(provider)
+//   .then((result) =>{
+//   var user = result.user;
+//   console.log(user)
 
-}).catch((error){
-  var errorCode = error.code;
-  var errorMessage = error.message;
+// }).catch((error){
+//   var errorCode = error.code;
+//   var errorMessage = error.message;
 
-  var email = error.email;
-  var credentials = error.credentials;
+//   var email = error.email;
+//   var credentials = error.credentials;
 
-});
-})
+// });
+// })
+
+import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+
+const auth = getAuth();
+signInWithPopup(auth, provider)
+  .then((result) => {
+    // This gives you a Google Access Token. You can use it to access the Google API.
+    const credential = GoogleAuthProvider.credentialFromResult(result);
+    const token = credential.accessToken;
+    // The signed-in user info.
+    const user = result.user;
+    // IdP data available using getAdditionalUserInfo(result)
+    // ...
+  }).catch((error) => {
+    // Handle Errors here.
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // The email of the user's account used.
+    const email = error.customData.email;
+    // The AuthCredential type that was used.
+    const credential = GoogleAuthProvider.credentialFromError(error);
+    // ...
+  });
