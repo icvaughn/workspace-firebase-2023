@@ -26,8 +26,14 @@ $("#signup-form").submit(function(e) {
   var username =  $('input[name = "fullname"]').val();
   var email =  $('input[name = "username"]').val();
   var password = $('input[name = "password"]').val();
-  var password = $('input[name = "cpassword"]').val();
+  var cpassword = $('input[name = "cpassword"]').val();
   // create a user with email address and password
+  if (password  == cpassword) {
+    
+  }else{
+    console.log("error incorrect password")
+    return;
+  }
   // cheack if both paswords are the same
   firebase
     .auth()
@@ -42,7 +48,18 @@ $("#signup-form").submit(function(e) {
       console.log(user.displayName," You are signed up");
       });
       //get current date
+      var date = "wed, 29 Nov 2023"
+      var userinfo = {
+        "username": user.displayName,
+        "email": email,
+        "date": date
+
+      };
       
+      var db = firebase.firestore();
+      db.collection("usertable").doc(user.displayName).set(userinfo).then(()=>{
+        console.log("information stored to firestore")
+      });
 
 
       window.location.href = "Login.html";
