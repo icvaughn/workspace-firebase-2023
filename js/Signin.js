@@ -45,7 +45,7 @@ $('#Login').submit(function (e) {
         photoUrl = user.photoURL;
         emailVerified = user.emailVerified;
         console.log(name, email, emailVerified);
-        window.location.herf = 'Surveyresult.html';
+        window.location.href = 'Surveyresult.html';
       }
     }).catch((error) => {
 
