@@ -35,7 +35,7 @@ $('#Login').submit(function (e) {
     .then((success) => {
       // Signed in
       // ...
-      console.log('login in');
+      console.log('login in successfully');
       let user = firebase.auth().currentUser;
 
       //user.updateProfile({ displayName: "Not sure" });
@@ -45,8 +45,7 @@ $('#Login').submit(function (e) {
         photoUrl = user.photoURL;
         emailVerified = user.emailVerified;
         console.log(name, email, emailVerified);
-        
-        window.location.herf = 'surveyresult.html';
+        window.location.herf = 'Surveyresult.html';
       }
     }).catch((error) => {
 
