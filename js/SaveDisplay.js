@@ -50,4 +50,13 @@ $(".sampleSurvey input[type='submit']").click(function(e) {
 
 });
 
+
+//signout
+$("#signout").click(function(){
+  firebase.auth().signOut().then(()=>{
+    console.log("user loged out")
+    window.location.href = "index.html";
+  })
+})
+
 // update the result in table

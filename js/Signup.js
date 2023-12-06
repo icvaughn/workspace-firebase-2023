@@ -60,7 +60,7 @@ $("#signup-form").submit(function(e) {
         console.log("information stored to firestore")
       });
 
-
+      
       window.location.href = "Login.html";
       });
  
